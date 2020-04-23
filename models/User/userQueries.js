@@ -1,12 +1,15 @@
 
- const insertUser = "INSERT INTO user (name) VALUES (?);";
+const insertUser = "INSERT INTO user (name) VALUES (?);";
 
- 
- const getuser = "SELECT * FROM user;";
- const deleteUserById = "DELETE FROM user WHERE id = ?;";
- const getUserById = "SELECT * FROM user WHERE id = ?;";
- const updateJediById = "UPDATE user SET jedi = ? WHERE id = ?";
- const updateSithById = "UPDATE user SET sith = ? WHERE id = ?";
+
+const getuser = "SELECT * FROM user;";
+const deleteUserById = "DELETE FROM user WHERE id = ?;";
+const getUsersById = "SELECT * FROM user WHERE id = ?;";
+const getJediById = "SELECT jedi FROM user WHERE id = ?";
+const getsithbyId = "SELECT sith from user WHERE id = ?";
+
+const updateJediById = "UPDATE user SET jedi = ? WHERE id = ?";
+const updateSithById = "UPDATE user SET sith = ? WHERE id = ?";
 
 
 
@@ -17,12 +20,14 @@
 
 
 
- module.exports = {
-     insertUser,
-     getuser,
-     deleteUserById,
-     getUserById,
-//      updateUser,
-updateSithById,
-     updateJediById,
-  };
+module.exports = {
+    insertUser,
+    getuser,
+    deleteUserById,
+    getUsersById,
+    //      updateUser,
+    updateSithById,
+    updateJediById,
+    getsithbyId,
+    getJediById
+};
