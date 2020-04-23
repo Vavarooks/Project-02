@@ -5,21 +5,21 @@ const userQueries = require('../models/User/userQueries');
 module.exports = {
     getuser: (req, res) => {
         connection.query(userQueries.getuser, (err, user) => {
-            if(err) {
+            if (err) {
                 throw err;
             }
             return res.json(user);
         });
     },
-    
+
     insertUser: (req, res) => {
-        const { jedi, sith  } = req.body;
-        connection.query(userQueries.insertUser, [jedi,sith], (err, dbRes) => {
-            if(err) {
+        const { jedi, sith } = req.body;
+        connection.query(userQueries.insertUser, [jedi, sith], (err, dbRes) => {
+            if (err) {
                 throw err;
             }
             connection.query(userQueries.getuser, (err, user) => {
-                if(err) {
+                if (err) {
                     throw err;
                 }
                 return res.json(user);
@@ -29,27 +29,51 @@ module.exports = {
     deleteUserById: (req, res) => {
         const { userId } = req.params;
         connection.query(userQueries.deleteUserById, parseInt(userId), (err, dbRes) => {
-            if(err) {
+            if (err) {
                 throw err;
             }
             return res.json({ success: true });
         });
     },
-    getUserById: (req, res) => {
+    getUsersById: (req, res) => {
         const { userId } = req.params;
-        connection.query(userQueries.getUserById, parseInt(userId), (err, user) => {
-            if(err) {
+        connection.query(userQueries.getUsersById, parseInt(userId), (err, user) => {
+            if (err) {
                 return res.json(err);
             }
             return res.json(user[0]);
         });
     },
+
+    getjediById: (req, res) => {
+        const { userId } = req.params;
+        connection.query(userQueries.getjediById, parseInt(userId), (err, user) => {
+            if (err) {
+                return res.json(err);
+            }
+            return res.json(user[0]);
+        });
+    },
+    getsithById: (req, res) => {
+        const { userId } = req.params;
+        connection.query(userQueries.getsithById, parseInt(userId), (err, user) => {
+            if (err) {
+                return res.json(err);
+            }
+            return res.json(user[0]);
+        });
+    },
+
+
+
+
     updateJediById: (req, res) => {
         const { userId } = req.params;
-         
 
-        connection.query(userQueries.updateJediById, [true, userId], (err, dbJson) => {``
-            if(err) {
+
+        connection.query(userQueries.updateJediById, [true, userId], (err, dbJson) => {
+            ``
+            if (err) {
                 throw new Error(err);
             }
             res.json({ success: true });
@@ -57,14 +81,15 @@ module.exports = {
     },
     updateSithById: (req, res) => {
         const { userId } = req.params;
-        
 
-        connection.query(userQueries.updateSithById, [true, userId], (err, dbJson) => {``
-            if(err) {
+
+        connection.query(userQueries.updateSithById, [true, userId], (err, dbJson) => {
+            ``
+            if (err) {
                 throw new Error(err);
             }
             res.json({ success: true });
         });
     },
-  
+
 }
