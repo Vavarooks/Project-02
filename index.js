@@ -1,6 +1,9 @@
 const express = require('express');
+const jediRoutes = require("./routes/Jedi");
+const sithRoutes = require("./routes/Sith");
 
-const PORT = process.env.PORT || 3001;
+
+const PORT = process.env.NODE_ENV || 3001;
 
 const app = express();
 
@@ -16,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 const routes = require('./routes');
 
 // Prepend / to any route declared inside of routes
-app.use(routes);
+app.use("/jedi",jediRoutes);
+app.use("/sith",sithRoutes)
 
 app.listen(PORT, () => console.log('Port started on port: ' + PORT));
