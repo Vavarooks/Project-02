@@ -1,6 +1,5 @@
 
-font-family: 'Merriweather', serif;
-
+/* font-family: 'Merriweather', serif; */
 
 .App-header {
   background-image: url(../src/components/Background.jpg);
@@ -16,12 +15,3 @@ font-family: 'Merriweather', serif;
   font-weight: bolder;
 }
 
-/* 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

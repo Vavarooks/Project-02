@@ -39,12 +39,12 @@
     },
     
 {"type":"Scale",
-    "question":"A merchant shop on Tatooine is selling something that’s worth far more than the listed price, do you inform the merchant",
+    "question":"Endor is a great place to Visit?",
    "answers":["1,2,3,4,5,6,7,8,9,10"]
     },
     
 {"type":"Scale",
-    "question":"You’re cruising along on your speederbike and see an injured Porg flat on it’s back, Do you help?",
+    "question":"Cruising along on your speederbike you see an injured Porg, Do you help?",
    "answers":["1,2,3,4,5,6,7,8,9,10"]
     },
 

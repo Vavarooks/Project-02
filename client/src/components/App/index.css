@@ -1,0 +1,54 @@
+ 
+ body {
+   
+    background-color: rgb(10, 10, 10);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .Title-Description {
+     background-image: url(https://lh3.googleusercontent.com/bBr5oG5wMaszl3b-BXgvKA3l8rkx27vrGKg5SsF-tqr1Yv8CKnWsLLdR-dSzFu1uGXRCOhWSodnM1olI55QD_AlyHVYb3AFYMX56zyYNDN0FZuOu3Geq5HckbmlGgI68jpXbclruGA=w2400);
+    /* background-image: linear-gradient(rgb(187, 10, 10), rgb(8, 34, 184)); */
+     padding-bottom: 1in;
+    font-family: sans-serif;
+    font-size:75px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(45, 214, 81); 
+} 
+
+.Descripton {
+    margin-top: -1.5in;
+    padding-bottom: 1in;
+    font-family: sans-serif;
+    font-size:35px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(45, 214, 87);
+
+
+}
+.Questions {
+font-size: 35px;
+text-align: center;
+font-family: sans-serif;
+font-weight: bold;
+padding: 3px;
+color: rgb(171, 171, 172);
+/* border: 2px;
+border-color: rgb(0, 0, 8);
+border-style: solid; */
+}
+
+.radio {
+    border: 2px;
+    border-color: rgb(0, 0, 8);
+    border-style: solid;
+    }
+
+.form_check {
+    align-items: center;
+}
