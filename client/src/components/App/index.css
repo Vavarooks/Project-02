@@ -50,14 +50,12 @@ border-style: solid; */
     border-style: solid;
     }
 
- 
-
 
 .container {
     margin-right: 0px !important;
     margin-left: 380px !important;
-}
 
+  
 .jumbotron {
    background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
 }

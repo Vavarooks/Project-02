@@ -18,7 +18,7 @@ function App()
         <div className="jumbotron jumbotron-fluid">
         <div className="container">
         <form>
-        <div className="form-check form-check-inline">
+        <div className="form-check form-check-inline center">
           
         <div className="form check"> 
         <input className="form-check input"type="radio" name="gridRadios" id="gridRadios1"value="option1"checked/> 
@@ -248,7 +248,7 @@ function App()
         <div className="jumbotron jumbotron-fluid">
         <div className="container">
         <form>
-        <div className="form-check form-check-inline">
+        <div className="form-check form-check-inline center">
           
         <div className="form-check"> 
         <input className="form-check input"type="radio" name="gridRadios" id="gridRadios1"value="option1"checked/> 
