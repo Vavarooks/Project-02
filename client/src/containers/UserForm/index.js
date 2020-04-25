@@ -8,7 +8,8 @@ class TodoForm extends Component {
      users: [],
   };
   componentDidMount() {
-    this.fetchUsers();
+    this.fetchJediUsers();
+    this.fetchSithUsers();
   }
   handleInputChange = (e) => {
     const { value } = e.target;
@@ -23,7 +24,6 @@ class TodoForm extends Component {
      axios.post('/jedi/users', {jedi: this.state.input }).then(res => {
       this.setState({ users: res.data, input:"" });
     });
-  };
 
  
   fetchJediUsers = () => {
@@ -63,28 +63,31 @@ class TodoForm extends Component {
     }
   }
 
+deleteUsersById = () => {
 
+  deleteSithById()
+  deleteJediById()
 
- 
+}
 
   render() {
     return (
       <div>
         <form>
           <div className="form-group">
-            <label>Todos</label>
+            <label>Users</label>
             <input
               onChange={this.handleInputChange}
               value={this.state.input}
               className="form-control"
-              id="exampleInputEmail1"
+              // id="exampleInputEmail1"
             />
           </div>
           <button onClick={this.handleSubmit} className="btn btn-primary">
             Submit
           </button>
         </form>
-        <ListItem items={this.state.todos} handleDelete={this.deleteTodoById} />
+        <ListItem items={this.state.user} handleDelete={this.deleteUsersById} />
       </div>
     );
   }
