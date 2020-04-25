@@ -1,4 +1,5 @@
  
+ 
  body {
    
     background-color: rgb(10, 10, 10);
@@ -57,6 +58,8 @@ border-style: solid; */
     margin-left: 380px !important;
 }
 
+
+  
 .jumbotron {
    background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
 }

@@ -3,7 +3,7 @@ const jediRoutes = require("./routes/Jedi");
 const sithRoutes = require("./routes/Sith");
 
 
-const PORT = process.env.NODE_ENV || 3001;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Declare routes right here.
-const routes = require('./routes');
+// const routes = require('./routes');
 
 // Prepend / to any route declared inside of routes
 app.use("/jedi",jediRoutes);
