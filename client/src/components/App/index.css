@@ -51,4 +51,15 @@ border-style: solid; */
 
 .form_check {
     align-items: center;
+    text-align: center;
+    justify-content: center;
+align-content: center;
+text-align-last: center;
+margin-left: 500%;
+
+}
+
+.container {
+    margin-right: 0px !important;
+    margin-left: auto !important;
 }
