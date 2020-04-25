@@ -20,7 +20,7 @@ function App()
         <form>
         <div className="form-check form-check-inline center">
           
-        <div className="form check"> 
+        <div className="form-check"> 
         <input className="form-check input"type="radio" name="gridRadios" id="gridRadios1"value="option1"checked/> 
         <label className="form-check-label" for="gridRadios1"/>1
         </div>
