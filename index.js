@@ -1,9 +1,9 @@
 const express = require('express');
-const jediRoutes = require("./routes/Jedi");
-const sithRoutes = require("./routes/Sith");
+const jediRoutes = require("./routes/userRoutes/Jedi");
+const sithRoutes = require("./routes/userRoutes/Sith");
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 

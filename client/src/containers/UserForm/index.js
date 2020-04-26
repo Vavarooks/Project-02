@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import axios from 'axios';
 // Component exports
-import ListItem from "../../components/TodoListItems";
-class TodoForm extends Component {
+import ListItem from "../../containers/UserListItems";
+class UserForm extends Component {
   state = {
-  input = "",
-     users: [],
-  };
+    input: "",
+    users: []
+  }
   componentDidMount() {
+
     this.fetchJediUsers();
     this.fetchSithUsers();
   }
@@ -18,57 +19,68 @@ class TodoForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/sith/users'), {sith: this.state.input }).then(res => {
-      this.setState({ users: res.data, input:"" });
+    this.postJediData()
+    // this.postSithData()
+    console.log(this.state.users)
+  }
 
-     axios.post('/jedi/users', {jedi: this.state.input }).then(res => {
-      this.setState({ users: res.data, input:"" });
+  postSithData = () => {
+
+    axios.post('/sith/users', { sith: this.state.input }).then(res => {
+      this.setState({ users: res.data, input: "" });
     });
+  }
 
- 
+  postJediData = () => {
+
+    axios.post('/jedi/users', { jedi: this.state.input }).then(res => {
+      this.setState({ users: res.data, input: "" });
+    });
+  }
+
   fetchJediUsers = () => {
     axios.get('/jedi/user').then(res => {
       console.log(res);
-      this.setState({jedi: res.data});
+      this.setState({ jedi: res.data });
     });
   }
 
   fetchSithUsers = () => {
     axios.get('/sith/user').then(res => {
       console.log(res);
-      this.setState({sith: res.data});
+      this.setState({ sith: res.data });
     });
   }
+deleteJediById = (id) => {
 
+axios.delete(`./jedi/users/${id}`)
+.then(()=>{
+this.fetchJediUsers()
 
-  deleteJediById = (id) => {
+})
+.catch(e=>{
+  console.log(e)
+})
+}
 
-    axios.delete(`/jedi/user/${id}`)
-    .then(()=>{
-      this.fetchJediUsers();
-    })
-    .catch(e)=>{
-      console.log(e)
-    }
-  }
 
   deleteSithById = (id) => {
 
     axios.delete(`/sith/user/${id}`)
-    .then(()=>{
-      this.fetchSithUsers();
-    })
-    .catch(e)=>{
-      console.log(e)
-    }
+      .then(() => {
+        this.fetchSithUsers();
+      })
+      .catch(e=>{
+        console.log(e)
+      })
   }
 
-deleteUsersById = () => {
+  deleteUsersById = () => {
 
-  deleteSithById()
-  deleteJediById()
+    this.deleteSithById()
+    this.deleteJediById()
 
-}
+  }
 
   render() {
     return (
@@ -80,17 +92,17 @@ deleteUsersById = () => {
               onChange={this.handleInputChange}
               value={this.state.input}
               className="form-control"
-              // id="exampleInputEmail1"
+            // id="exampleInputEmail1"
             />
           </div>
           <button onClick={this.handleSubmit} className="btn btn-primary">
             Submit
           </button>
         </form>
-        <ListItem items={this.state.user} handleDelete={this.deleteUsersById} />
+        <ListItem items={this.state.users} handleDelete={this.deleteUsersById} />
       </div>
     );
   }
 }
 
-export default TodoForm;
+  export default UserForm;

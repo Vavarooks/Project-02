@@ -1,5 +1,10 @@
 
 const insertUser = "INSERT INTO user (name) VALUES (?);";
+const insertJedi = "INSERT INTO user (name,jedi,sith) VALUES (?,true,false);"
+
+// const insertSith = "INSERT INTO user (name,jedi,sith) VALUES (?,false,true);";
+
+// const insertJedi = "INSERT INTO user SET name = ?, jedi = false, sith = true;";
 
 
 const getuser = "SELECT * FROM user;";
@@ -21,6 +26,8 @@ const updateSithById = "UPDATE user SET sith = ? WHERE id = ?";
 
 
 module.exports = {
+    insertJedi,
+    // insertSith,
     insertUser,
     getuser,
     deleteUserById,

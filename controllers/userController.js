@@ -1,4 +1,4 @@
-const connection = require('../config/Connections');
+const connection = require('../config/connection');
 const userQueries = require('../models/User/userQueries');
 
 
@@ -12,9 +12,9 @@ module.exports = {
         });
     },
 
-    insertUser: (req, res) => {
-        const { jedi, sith } = req.body;
-        connection.query(userQueries.insertUser, [jedi, sith], (err, dbRes) => {
+    insertSith: (req, res) => {
+        const { sith } = req.body;
+        connection.query(userQueries.insertSith, sith, (err, dbRes) => {
             if (err) {
                 throw err;
             }
@@ -26,6 +26,26 @@ module.exports = {
             });
         });
     },
+
+
+    insertJedi: (req, res) => {
+        const { jedi} = req.body;
+        console.log(jedi);
+        connection.query(userQueries.insertJedi, jedi, (err, dbRes) => {
+            if (err) {
+                throw err;
+            }
+            console.log(dbRes);
+            // connection.query(userQueries.getuser, (err, user) => {
+            //     if (err) {
+            //         throw err;
+            //     }
+            //     return res.json(user);
+            // });
+        });
+    },
+
+
     deleteUserById: (req, res) => {
         const { userId } = req.params;
         connection.query(userQueries.deleteUserById, parseInt(userId), (err, dbRes) => {
