@@ -6,11 +6,11 @@ class UserListItem extends Component {
     state = {
         user: {
             id: "",
-            name: ''
+            name: '',
             jedi: '',
             sith: ''
         },
-        name: ''
+        name: '',
         jedi: '',
         sith: '',
         error: "",
@@ -25,7 +25,7 @@ class UserListItem extends Component {
 
         axios.get(`/sith/user/${this.props.match.params.sithId}`)
             .then(() => {
-                this.setState({ Sith: data, e: '' });
+                this.setState({ user: data, e: '' });
 
             })
             .catch((e) => {
@@ -34,7 +34,7 @@ class UserListItem extends Component {
 
         axios.get(`/jedi/user/${this.props.match.params.jediId}`)
             .then(() => {
-                this.setState({ Jedi: data, e: '' });
+                this.setState({ user: data, e: '' });
 
             })
             .catch((e) => {
