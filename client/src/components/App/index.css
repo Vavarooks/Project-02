@@ -50,12 +50,20 @@ border-style: solid; */
     border-style: solid;
     }
 
+.form-check {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+align-content: center;
+text-align-last: center;
+
+}
 
 .container {
     margin-right: 0px !important;
-    margin-left: 380px !important;
+    margin-left: auto !important;
+}
 
-  
-.jumbotron {
-   background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
+.jumbotron-fluid{
+    background-image: linear-gradient(rgb(138, 199, 218),rgb(236, 152, 236), rgb(187, 59, 59)) !important;
 }
