@@ -1,6 +1,4 @@
- 
- 
- body {
+body {
    
     background-color: rgb(10, 10, 10);
     min-height: 100vh;
@@ -64,13 +62,7 @@ text-align-last: center;
     margin-left: auto !important;
 }
 
-<<<<<<< HEAD
-.jumbotron-fluid{
-    background-image: linear-gradient(rgb(138, 199, 218),rgb(236, 152, 236), rgb(187, 59, 59)) !important;
-}
-=======
-}
+
 .jumbotron {
    background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
 }
->>>>>>> 674fed2511598ce3483cce252932ba0c2b77bb0e
