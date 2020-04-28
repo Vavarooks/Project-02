@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Music from "../Music";
 import './index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import UserListItem from './../../containers/UserListItem'
@@ -18,7 +18,7 @@ function App() {
         </p>
         <div className="Descripton">A Jedi or Sith Personality Test </div>
 
-
+    <Music/>
 
         <div className="radio">
 
