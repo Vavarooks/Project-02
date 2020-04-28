@@ -11,23 +11,15 @@ module.exports = {
             return res.json(user);
         });
     },
-
     insertSith: (req, res) => {
         const { sith } = req.body;
         connection.query(userQueries.insertSith, sith, (err, dbRes) => {
             if (err) {
                 throw err;
             }
-            connection.query(userQueries.getuser, (err, user) => {
-                if (err) {
-                    throw err;
-                }
-                return res.json(user);
-            });
+            console.log(dbRes)
         });
     },
-
-
     insertJedi: (req, res) => {
         const { jedi} = req.body;
         console.log(jedi);
@@ -36,16 +28,8 @@ module.exports = {
                 throw err;
             }
             console.log(dbRes);
-            // connection.query(userQueries.getuser, (err, user) => {
-            //     if (err) {
-            //         throw err;
-            //     }
-            //     return res.json(user);
-            // });
         });
     },
-
-
     deleteUserById: (req, res) => {
         const { userId } = req.params;
         connection.query(userQueries.deleteUserById, parseInt(userId), (err, dbRes) => {
