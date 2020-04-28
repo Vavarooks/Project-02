@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css'; 
-
+import UserForm from "./../../containers/UserForm"
+ 
 function App() 
 {
   return (
@@ -641,6 +642,8 @@ function App()
         </div>
         </div>
       </header>
+      <UserForm/>
+ 
     </div> 
     );
  

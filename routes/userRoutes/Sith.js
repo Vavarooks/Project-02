@@ -5,13 +5,15 @@ const userController = require('../../controllers/userController');
 
 
 
-router.get('/',userController.getuser);
-router.post('/',userController.insertUser);
+// router.get('/',userController.getuser);
+// router.post('/',userController.insertUser);
+router.post('/users',userController.insertSith)
 
 
-router.route('/:userId')
-    .delete(userController.deleteUserById)
-    .get(userController.getSithById)
+
+// router.route('/:userId')
+//     .delete(userController.deleteUserById)
+//     .get(userController.getSithById)
     // .patch(userController.updateTodoTitleById);
 
 
