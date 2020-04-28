@@ -1,7 +1,6 @@
 import React from 'react';
 import './index.css'; 
-import UserForm from "./../../containers/UserForm"
- 
+
 function App() 
 {
   return (
@@ -11,11 +10,12 @@ function App()
           The Jedi Code
         </p>
         <div className="Descripton">A Jedi or Sith Personality Test </div>
+
+
+
         <div className="radio">
         <div className="Questions">
         <p>Han shot first?</p></div>
-        
-        
         <div className="jumbotron jumbotron-fluid">
         <div className="container">
         <form>
@@ -472,7 +472,7 @@ function App()
         <div className="radio">
         <div className="Questions">
           
-        <p> Endor is a great place to Visit?</p></div>
+        <p>Endor is a great place to Visit?</p></div>
         
         
         <div className="jumbotron jumbotron-fluid">
@@ -530,7 +530,7 @@ function App()
         <div className="radio">
         <div className="Questions">
           
-        <p>"You see an injured Porg, Do you help it?</p></div>
+        <p>You see an injured Porg, Do you help it?</p></div>
         
         
         <div className="jumbotron jumbotron-fluid">
@@ -588,7 +588,7 @@ function App()
         <div className="radio">
         <div className="Questions">
           
-        <p>"The Millennium Falcon is a hunk of junk?</p></div>
+        <p>The Millennium Falcon is a hunk of junk?</p></div>
         
         
         <div className="jumbotron jumbotron-fluid">
@@ -642,8 +642,6 @@ function App()
         </div>
         </div>
       </header>
-      <UserForm/>
- 
     </div> 
     );
  
