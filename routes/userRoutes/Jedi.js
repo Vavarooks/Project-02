@@ -10,8 +10,8 @@ const userController = require('../../controllers/userController');
 router.post('/users',userController.insertJedi)
 
 // router.route('/:userId')
-//     .delete(userController.deleteUserById)
-//     .get(userController.getJediById)
+    // .delete(userController.deleteUserById)
+    // .get(userController.getJediById)
     // .patch(userController.updateTodoTitleById);
 
 

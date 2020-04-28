@@ -1,15 +1,27 @@
 import React, { Component } from "react";
 import axios from 'axios';
-// Component exports
-import ListItem from "../../containers/UserListItems";
+ // import UserListItem from "../UserListItem"
+import UserListItems from "../UserListItems";
+ 
 class UserForm extends Component {
   state = {
     input: "",
-    users: []
+    users: [
+      {user: {
+            id: "1",
+            name: "fanuel",
+            jedi: true,
+            sith: false,
+        },
+        name: "fanuel",
+        jedi: true,
+        sith: false,
+        error: "",}],
+    score: 0,
   }
   componentDidMount() {
 
-    this.fetchJediUsers();
+    // this.fetchJediUsers();
     this.fetchSithUsers();
   }
   handleInputChange = (e) => {
@@ -19,49 +31,70 @@ class UserForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.postJediData()
-    // this.postSithData()
+    // this.postJediData()
+    this.postSithData()
     console.log(this.state.users)
   }
-
-  postSithData = () => {
-
-    axios.post('/sith/users', { sith: this.state.input }).then(res => {
-      this.setState({ users: res.data, input: "" });
-    });
-  }
-
   postJediData = () => {
 
-    axios.post('/jedi/users', { jedi: this.state.input }).then(res => {
-      this.setState({ users: res.data, input: "" });
-    });
+    axios.post('/jedi/users', { jedi: this.state.input })
+      .then((res) => {
+        this.setState({ users: res.data, input: "" })
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+
+  }
+  postSithData = () => {
+
+    axios.post('/sith/users', { sith: this.state.input })
+      .then((res) => {
+         this.setState({ users: res.data, input: "" })
+       })
+      .then((e) => {
+        console.log(e)
+      })
+
   }
 
+
   fetchJediUsers = () => {
-    axios.get('/jedi/user').then(res => {
-      console.log(res);
-      this.setState({ jedi: res.data });
-    });
+    axios.get('/jedi/user')
+      .then((res) => {
+        // console.log(res);
+        // console.log(res.data)
+        this.setState({ jedi: res.data })
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   fetchSithUsers = () => {
-    axios.get('/sith/user').then(res => {
+    axios.get('/sith/user')
+    .then((res)=>{
       console.log(res);
-      this.setState({ sith: res.data });
-    });
+      this.setState({sith: res.data})
+    })
+    .catch((e)=>{
+      console.log(e)
+    })
   }
-deleteJediById = (id) => {
 
-axios.delete(`./jedi/users/${id}`)
-.then(()=>{
-this.fetchJediUsers()
 
-})
-.catch(e=>{
-  console.log(e)
-})
-}
+  deleteJediById = (id) => {
+
+    axios.delete(`./jedi/users/${id}`)
+      .then(() => {
+        this.fetchJediUsers()
+
+      })
+      .catch((e)=>{
+        console.log(e)
+      })
+      
+  }
 
 
   deleteSithById = (id) => {
@@ -70,9 +103,10 @@ this.fetchJediUsers()
       .then(() => {
         this.fetchSithUsers();
       })
-      .catch(e=>{
+      .catch((e)=>{
         console.log(e)
       })
+      
   }
 
   deleteUsersById = () => {
@@ -82,12 +116,19 @@ this.fetchJediUsers()
 
   }
 
+
+
+  
+
   render() {
+ 
     return (
       <div>
         <form>
           <div className="form-group">
+
             <label>Enter Your Jedi or Sith Name</label>
+
             <input
               onChange={this.handleInputChange}
               value={this.state.input}
@@ -99,10 +140,11 @@ this.fetchJediUsers()
             Submit
           </button>
         </form>
-        <ListItem items={this.state.users} handleDelete={this.deleteUsersById} />
+        <UserListItems items={this.state.users} handleDelete={this.deleteUsersById}
+         />
       </div>
     );
   }
 }
 
-  export default UserForm;
+export default UserForm;
