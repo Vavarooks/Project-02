@@ -1,5 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD
 import Music from "../Music";
+=======
+
+import Sound from 'react-sound';
+import UserForm from "./../../containers/UserForm"
+
+// import soundfile from "../audio_file.mp3"
+
+>>>>>>> d82e697786cea59c5d94e3cca6ceb88f7a549d39
 import './index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import UserListItem from './../../containers/UserListItem'
@@ -10,8 +19,11 @@ import UserListItem from "../../containers/UpdateListItem"
 
 function App() {
 
+
   return (
     <div className="App">
+      
+
       <header className="App-header">
         <p className="Title-Description">
           The Jedi Code
@@ -659,12 +671,12 @@ function App() {
           </div>
         </div>
       </header>
+
       <Router>
 
         <Route exact path="/" component={UserForm} />
         <Route exact path="/sith/:userId" component={UserListItem}/>  
         <Route exact path="/jedi/:userId" component={UserListItem}/>  
-
  
       </Router>
 

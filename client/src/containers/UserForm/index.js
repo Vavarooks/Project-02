@@ -126,7 +126,9 @@ class UserForm extends Component {
       <div>
         <form>
           <div className="form-group">
-            <label>Users input</label>
+
+            <label>Enter Your Jedi or Sith Name</label>
+
             <input
               onChange={this.handleInputChange}
               value={this.state.input}
