@@ -87,7 +87,7 @@ this.fetchJediUsers()
       <div>
         <form>
           <div className="form-group">
-            <label>Users</label>
+            <label>Enter Your Jedi or Sith Name</label>
             <input
               onChange={this.handleInputChange}
               value={this.state.input}
