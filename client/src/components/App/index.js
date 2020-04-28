@@ -1,10 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD
+import Music from "../Music";
+=======
 
 import Sound from 'react-sound';
 import UserForm from "./../../containers/UserForm"
 
 // import soundfile from "../audio_file.mp3"
 
+>>>>>>> d82e697786cea59c5d94e3cca6ceb88f7a549d39
 import './index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import UserListItem from './../../containers/UserListItem'
@@ -26,7 +30,7 @@ function App() {
         </p>
         <div className="Descripton">A Jedi or Sith Personality Test </div>
 
-
+    <Music/>
 
         <div className="radio">
 
