@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios';
 // Component exports
 import ListItem from "../../containers/UserListItems";
+
+
+
 class UserForm extends Component {
   state = {
     input: "",
@@ -84,7 +87,7 @@ this.fetchJediUsers()
 
   render() {
     return (
-      <div>
+      <div className="BTN">
         <form>
           <div className="form-group">
             <label>Enter Your Jedi or Sith Name</label>
@@ -94,10 +97,12 @@ this.fetchJediUsers()
               className="form-control"
             // id="exampleInputEmail1"
             />
-          </div>
-          <button onClick={this.handleSubmit} className="btn btn-primary">
+          </div >
+          <div class="text-center">
+          <button onClick={this.handleSubmit} className="btn btn-primary ">
             Submit
           </button>
+          </div>
         </form>
         <ListItem items={this.state.users} handleDelete={this.deleteUsersById} />
       </div>

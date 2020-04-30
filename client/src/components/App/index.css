@@ -67,5 +67,11 @@ border-style: solid; */
     font-weight: bold;
     padding: 3px;
     color: rgb(2, 160, 252);
+    margin-left: 300px;
+    margin-right: 300px;
 
+}
+
+.BTN {
+    align-items: center;
 }
