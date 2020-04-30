@@ -1,15 +1,18 @@
 import React from 'react';
 
-import Sound from 'react-sound';
+// import Sound from 'react-sound';
 import UserForm from "./../../containers/UserForm"
 
 // import soundfile from "../audio_file.mp3"
 
 import './index.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import UserList from "./../../containers/UserListItems"
+
 // import UserListItem from './../../containers/UserListItem'
-import UserForm from "./../../containers/UserForm"
-import UserListItem from "../../containers/UpdateListItem"
+// import UserForm from "./../../containers/UserForm"
+// import UserListItems from "./../../containers/UserListItems"
+// import UserListItem from "../../containers/UpdateListItem"
 
 // import ListItems from '../../containers/UserListItems';
 
@@ -26,7 +29,7 @@ function App() {
         </p>
         <div className="Descripton">A Jedi or Sith Personality Test </div>
 
-    <Music/>
+    {/* <Music/> */}
 
         <div className="radio">
 
@@ -663,18 +666,24 @@ function App() {
         </div>
                 </div>
               </form>
+ 
             </div>
+ 
           </div>
+
         </div>
       </header>
 
-      <Router>
+      <UserList />
 
-        <Route exact path="/" component={UserForm} />
-        <Route exact path="/sith/:userId" component={UserListItem}/>  
-        <Route exact path="/jedi/:userId" component={UserListItem}/>  
+      {/* <Router>
+
+         <Route exact path="/" component={UserForm} />
+         <Route exact path="/sith/:userId" component={UserListItems}/>  
+         <Route exact path="/jedi/:userId" component={UserListItems}/>  
+
  
-      </Router>
+      </Router> */}
 
       {/* <UserForm /> */}
       {/* <ListItems/> */}
@@ -685,3 +694,5 @@ function App() {
 }
 
 export default App;
+
+ 

@@ -3,6 +3,22 @@ const userQueries = require('../models/User/userQueries');
 
 
 module.exports = {
+    getJedi: (req, res) => {
+        connection.query(userQueries.getJedi, (err, user) => {
+            if (err) {
+                throw err;
+            }
+            return res.json(user);
+        });
+    },
+    getSith: (req, res) => {
+        connection.query(userQueries.getSith, (err, user) => {
+            if (err) {
+                throw err;
+            }
+            return res.json(user);
+        });
+    },
     getuser: (req, res) => {
         connection.query(userQueries.getuser, (err, user) => {
             if (err) {

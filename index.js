@@ -22,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Prepend / to any route declared inside of routes
 app.use("/jedi",jediRoutes);
+
 app.use("/sith",sithRoutes)
 
 app.listen(PORT, () => console.log('Port started on port: ' + PORT));

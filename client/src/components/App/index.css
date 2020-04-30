@@ -48,17 +48,6 @@ border-style: solid; */
     border-style: solid;
     }
 
-<<<<<<< HEAD
- 
-
-
-.container {
-    margin-right: 0px !important;
-    margin-left: 380px !important;
-}
-
-
-=======
 .form-check {
     align-items: center;
     text-align: center;
@@ -71,7 +60,6 @@ text-align-last: center;
 .container {
     margin-right: 0px !important;
     margin-left: auto !important;
->>>>>>> 72dbbf2d0f2f87e6a300df53f97426e8d81f0c84
 }
 
 
@@ -79,14 +67,31 @@ text-align-last: center;
    background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
 }
 
-
-.form-group {
-    font-size: 25px;
+.input-title {
+    border-radius: 10px;
+    margin-right:900px;
+    padding:10px;
+     background-color:#DC143C;
+    color:white;
     text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    padding: 3px;
-    color: rgb(2, 160, 252);
-
+    width:160px
+}
+.add-player {
+    border:none;
+    border-radius: 10px;
+color:white;
+    text-align:center;
+    margin-top:10px;
+background-color: #DC143C;
+border-radius: 10px;
+padding:10px;
+font-size:20px;
+margin-left:15px;
 }
 
+.card {
+    padding:30px;
+    background-color:#F5FFFA;
+    margin:15px
+  }
+ 
