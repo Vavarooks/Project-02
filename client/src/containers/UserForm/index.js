@@ -103,9 +103,11 @@ this.fetchJediUsers()
             Submit
           </button>
           </div>
+          <br></br>
         </form>
         <ListItem items={this.state.users} handleDelete={this.deleteUsersById} />
       </div>
+      
     );
   }
 }
