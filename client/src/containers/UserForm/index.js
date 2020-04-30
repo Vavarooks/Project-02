@@ -1,150 +1,172 @@
-import React, { Component } from "react";
+import React from 'react';
+import "./../../components/App/index.css"
+// import "./../../src/"
 import axios from 'axios';
- // import UserListItem from "../UserListItem"
-import UserListItems from "../UserListItems";
- 
-class UserForm extends Component {
-  state = {
-    input: "",
-    users: [
-      {user: {
-            id: "1",
-            name: "fanuel",
-            jedi: true,
-            sith: false,
-        },
-        name: "fanuel",
-        jedi: true,
-        sith: false,
-        error: "",}],
-    score: 0,
-  }
-  componentDidMount() {
+// import "./../../src/"
+// import UserListItem from "../UserListItem"
 
-    // this.fetchJediUsers();
-    this.fetchSithUsers();
-  }
-  handleInputChange = (e) => {
-    const { value } = e.target;
-    this.setState({ input: value });
-  };
+class UserForm extends React.Component {
+    state = {
+        id: 0,
+        name: "",
+        jedi: {},
+        sith: {},
+        status: "good",
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // this.postJediData()
-    this.postSithData()
-    console.log(this.state.users)
-  }
-  postJediData = () => {
+    }
 
-    axios.post('/jedi/users', { jedi: this.state.input })
-      .then((res) => {
-        this.setState({ users: res.data, input: "" })
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+    componentDidMount() {
 
-  }
-  postSithData = () => {
+        this.fetchJediUsers();
 
-    axios.post('/sith/users', { sith: this.state.input })
-      .then((res) => {
-         this.setState({ users: res.data, input: "" })
-       })
-      .then((e) => {
-        console.log(e)
-      })
-
-  }
-
-
-  fetchJediUsers = () => {
-    axios.get('/jedi/user')
-      .then((res) => {
-        // console.log(res);
-        // console.log(res.data)
-        this.setState({ jedi: res.data })
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
-  fetchSithUsers = () => {
-    axios.get('/sith/user')
-    .then((res)=>{
-      console.log(res);
-      this.setState({sith: res.data})
-    })
-    .catch((e)=>{
-      console.log(e)
-    })
-  }
-
-
-  deleteJediById = (id) => {
-
-    axios.delete(`./jedi/users/${id}`)
-      .then(() => {
-        this.fetchJediUsers()
-
-      })
-      .catch((e)=>{
-        console.log(e)
-      })
-      
-  }
-
-
-  deleteSithById = (id) => {
-
-    axios.delete(`/sith/user/${id}`)
-      .then(() => {
         this.fetchSithUsers();
-      })
-      .catch((e)=>{
-        console.log(e)
-      })
-      
-  }
-
-  deleteUsersById = () => {
-
-    this.deleteSithById()
-    this.deleteJediById()
-
-  }
+    }
+    handleChange = (e) => {
+        const { value } = e.target;
+        this.setState({ name: value });
+    };
 
 
 
-  
 
-  render() {
- 
-    return (
-      <div>
-        <form>
-          <div className="form-group">
+    handleSubmit = (e) => {
+        e.preventDefault();
+        // evaluate the response doing the average and if is > 70 === good else ===bad
+        let numRandom = Math.random() * 100
+        let status = numRandom > 50 ? "good" : "bad";
+        console.log(status, numRandom)
+        if (status === "good") {
+            this.postJediData()
+        }
+        else {
+            this.postSithData()
+        }
+        this.props.onSubmit({
+            id: this.setState.id + 1,
+            name: this.state.name,
+            sith: "false",
+            jedi: "false",
+        })
 
-            <label>Enter Your Jedi or Sith Name</label>
+        this.setState({
+            name: ""
+        });
 
-            <input
-              onChange={this.handleInputChange}
-              value={this.state.input}
-              className="form-control"
-            // id="exampleInputEmail1"
-            />
-          </div>
-          <button onClick={this.handleSubmit} className="btn btn-primary">
-            Submit
-          </button>
-        </form>
-        <UserListItems items={this.state.users} handleDelete={this.deleteUsersById}
-         />
-      </div>
-    );
-  }
+    }
+
+
+
+    postJediData = () => {
+
+        axios.post('/jedi/users', { jedi: this.state.name })
+            .then((res) => {
+                this.setState({ users: res.data, name: "" })
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
+    postSithData = () => {
+
+        axios.post('/sith/users', { sith: this.state.name })
+            .then((res) => {
+                this.setState({ users: res.data, name: "" })
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
+
+
+    fetchJediUsers = () => {
+        console.log("fetchJedi")
+        axios.get('/jedi/users')
+            .then((res) => {
+                // console.log(res);
+                console.log(res.data)
+                this.setState({ jedi: res.data })
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+    fetchSithUsers = () => {
+        console.log("fetchSith")
+        axios.get('/sith/users')
+            .then((res) => {
+                console.log(res.data);
+                this.setState({ sith: res.data })
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+
+    deleteJediById = (id) => {
+
+        axios.delete(`/jedi/users/${id}`)
+            .then(() => {
+                this.fetchJediUsers()
+
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
+
+
+    deleteSithById = (id) => {
+
+        axios.delete(`/sith/users/${id}`)
+            .then(() => {
+                this.fetchSithUsers();
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
+
+    deleteUsersById = () => {
+
+        this.deleteSithById()
+        this.deleteJediById()
+
+    }
+    
+    render() {
+
+        return (
+            <div>
+
+                {/* <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div> */}
+
+
+<form>
+    <div className="form-group">
+<br />
+<input name="name"
+     placeholder="your name..."
+    value={this.state.name} onChange={this.handleChange} />
+    <button className="add-player" onClick={this.handleSubmit}> <strong> + Add Player</strong>   </button>
+</div>
+</form>
+                {/* <UserListItems items={this.state.users} handleDelete={this.deleteUsersById}
+         /> */}
+            </div>
+        );
+    }
 }
 
 export default UserForm;
+
+
