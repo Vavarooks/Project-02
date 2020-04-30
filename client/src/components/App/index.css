@@ -1,6 +1,4 @@
- 
- 
- body {
+body {
    
     background-color: rgb(10, 10, 10);
     min-height: 100vh;
@@ -50,6 +48,7 @@ border-style: solid; */
     border-style: solid;
     }
 
+<<<<<<< HEAD
  
 
 
@@ -59,7 +58,35 @@ border-style: solid; */
 }
 
 
+=======
+.form-check {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+align-content: center;
+text-align-last: center;
+
 }
+
+.container {
+    margin-right: 0px !important;
+    margin-left: auto !important;
+>>>>>>> 72dbbf2d0f2f87e6a300df53f97426e8d81f0c84
+}
+
+
 .jumbotron {
    background-image: linear-gradient(rgb(0, 0, 8), rgb(45, 214, 87));
 }
+
+
+.form-group {
+    font-size: 25px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 3px;
+    color: rgb(2, 160, 252);
+
+}
+

@@ -12,8 +12,8 @@ router.post('/users',userController.insertSith)
 
 
 // router.route('/:userId')
-//     .delete(userController.deleteUserById)
-//     .get(userController.getSithById)
+    // .delete(userController.deleteUserById)
+    // .get(userController.getSithById)
     // .patch(userController.updateTodoTitleById);
 
 
