@@ -2,6 +2,7 @@ import React from 'react';
 import "./../../components/App/index.css"
 // import "./../../src/"
 import axios from 'axios';
+import "./../../components/App/index.css"
 // import "./../../src/"
 // import UserListItem from "../UserListItem"
 
@@ -154,7 +155,7 @@ class UserForm extends React.Component {
 <form>
     <div className="form-group">
 <br />
-<input name="name"
+<input className="input-form" name="name"
      placeholder="your name..."
     value={this.state.name} onChange={this.handleChange} />
     <button className="add-player" onClick={this.handleSubmit}> <strong> + Add Player</strong>   </button>

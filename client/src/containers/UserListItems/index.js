@@ -46,11 +46,10 @@ class UserList extends React.Component {
    
     addUser = (user) => {
 
-        let a = this.setState({
+        this.setState({
             users: [user,...this.state.users]
         })
-        console.log(a)
-    }
+     }
 
     render(){
 
@@ -63,9 +62,9 @@ class UserList extends React.Component {
            {this.state.users.map((user)=>(
         <div className ="card">
         
-        <li key={user.id}> <strong> id : </strong> {user.id}</li>
-        <li key={user.id}> <strong>  Name : </strong> {user.name}  </li>
-        <li key={user.id}> <strong> Sith / Jedi: </strong> {user.sith? "Sith": "Jedi"}</li>
+        <li > <strong> id : </strong> {user.id}</li>
+        <li > <strong>  Name : </strong> {user.name}  </li>
+        <li > <strong> Sith / Jedi: </strong> {user.sith? "Sith": "Jedi"}</li>
 
 
          </div>
