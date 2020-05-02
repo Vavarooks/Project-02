@@ -5,16 +5,16 @@ const userController = require('../../controllers/userController');
 
 
 
-// router.get('/',userController.getuser);
+router.get('/users',userController.getSith);
 // router.post('/',userController.insertUser);
 router.post('/users',userController.insertSith)
 
 
 
 // router.route('/:userId')
-//     .delete(userController.deleteUserById)
-//     .get(userController.getSithById)
-    // .patch(userController.updateTodoTitleById);
+    // // .delete(userController.deleteUserById)
+    // .get(userController.getSithById)
+    // // .patch(userController.updateTodoTitleById);
 
 
 module.exports = router;

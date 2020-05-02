@@ -1,27 +1,90 @@
+
 import React from 'react';
+// import { Link } from 'react-router-dom';
+import UserForm from "./../UserForm"
+import "./../../components/App/index.css"
+import "./../../components/App/index.css"
+// import UserListItems from './../UserListItems'
+import axios from "axios"
 
-import { Link } from 'react-router-dom';
 
-const ListItems = props => {
-    console.log(props.items);
-    return (
-        <ul className="list-group">
-            { props.items.map(item => (
-                <li 
-                 className={item.user ? "list-group-item text-success" : "list-group-item text-danger"}
-                 key={item.id}
-                 >
-                
-                    {item.name}
-                    <button 
-                        className="btn btn-danger"
-                        onClick={ () => props.handleDelete(item.id) }>Delete</button>
-                    <Link to={`/sith/user${item.id}`}>Go to sith</Link>
-                    <Link to={`/jedi/user${item.id}`}>Go to jedi</Link>
+class UserList extends React.Component {
 
-                </li>
-            ))}
-        </ul>
-    );
-}
-export default ListItems;
+    state = {
+        users: [],
+        jedi:[],
+        sith:[]
+    };
+    componentDidMount() {
+
+        this.fetchUsers();
+    
+      }
+
+    fetchUsers = () => {
+        console.log("fetchJedi")
+      axios.get('/jedi/users')
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data)
+          let Jedi = res.data
+     
+            console.log("fetchJedi")
+          axios.get('/sith/users')
+            .then((res) => {
+              // console.log(res);
+              console.log(res.data)
+              let Sith = res.data
+              let users = [...Jedi,...Sith]
+              this.setState({ users: users})
+            })
+           
+        })
+    }
+    
+  
+   
+    addUser = (user) => {
+
+        this.setState({
+            users: [user,...this.state.users]
+        })
+     }
+
+    render(){
+
+        return  <div> 
+
+            <div className = "divbox"> 
+
+            <UserForm  onSubmit={this.addUser}/>
+
+           {this.state.users.map((user)=>(
+        <div className ="card">
+        
+        <li > <strong> id : </strong> {user.id}</li>
+        <li > <strong>  Name : </strong> {user.name}  </li>
+        <li > <strong> Sith / Jedi: </strong> {user.sith? "Sith": "Jedi"}</li>
+
+
+         </div>
+
+
+           ))}
+
+         {/* {JSON.stringify(this.state.users)} */}
+
+            </div>
+
+       </div>
+
+
+        }
+
+        } 
+
+        export default UserList
+
+
+
+ 
