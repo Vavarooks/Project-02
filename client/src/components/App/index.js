@@ -265,7 +265,7 @@ function App() {
 
         <div className="radio">
           <div className="Questions">
-            <p>You think Ewoks are cuteand cuddly?</p></div>
+            <p>You think Ewoks are cute and cuddly?</p></div>
 
 
           <div className="jumbotron jumbotron-fluid">
