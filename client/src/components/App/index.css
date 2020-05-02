@@ -39,7 +39,7 @@ padding: 3px;
 color: rgb(250, 24, 24);
 /* border: 2px;
 border-color: rgb(0, 0, 8);
-border-style: solid; */
+border-style:  solid; */
 }
 
 .radio {
@@ -59,7 +59,7 @@ text-align-last: center;
 
 .container {
     margin-right: 0px !important;
-    margin-left: auto !important;
+    margin-left: 380px !important;
 }
 
 
@@ -74,19 +74,31 @@ text-align-last: center;
      background-color:#DC143C;
     color:white;
     text-align: center;
-    width:160px
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 3px;
+    color: rgb(2, 160, 252);
+    margin-left: 300px;
+    margin-right: 300px;
+
+}
+
+.BTN {
+    align-items: center;
+
+    width: 160px
 }
 .add-player {
     border:none;
     border-radius: 10px;
-color:white;
+    color:rgb(12, 12, 12);
     text-align:center;
     margin-top:10px;
-background-color: #DC143C;
-border-radius: 7px;
-padding:7px;
-font-size:20px;
-margin-left:15px;
+    background-color: #DC143C;
+    border-radius: 7px;
+    padding:10px;
+    font-size:25px;
+    margin-left:15%;
 }
 
 .card {
@@ -94,6 +106,20 @@ margin-left:15px;
     background-color:#F5FFFA;
     margin:15px
   }
- .input-form{
-     padding:3px
+
+ .input-form-lg{
+     padding-top: 15px;
+     padding-left:200px; 
+     margin-right: auto;
+     align-content: center;
+     font-size: 15px;
+     text-align: center;
+     
  }
+
+ .form-group {
+     margin-right: 15%;
+     margin-left: 35%;
+ }
+
+ 
