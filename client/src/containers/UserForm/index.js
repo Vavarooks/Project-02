@@ -43,7 +43,7 @@ class UserForm extends React.Component {
             this.postSithData()
         }
         this.props.onSubmit({
-            id: this.setState.id + 1,
+            id: this.state.id++,
             name: this.state.name,
             sith: "false",
             jedi: "false",
