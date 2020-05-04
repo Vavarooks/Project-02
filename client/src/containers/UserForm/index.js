@@ -155,8 +155,8 @@ class UserForm extends React.Component {
 <form>
     <div className="form-group">
 <br />
-<input className="input-form-lg " name="name"
-     placeholder ="Enter a Jedi/Sith Name"
+<input className="input-form-lg; " name="name"
+     placeholder ="Whats Your Name"
     value={this.state.name} onChange={this.handleChange} />
     <button className="add-player" onClick={this.handleSubmit}> <strong> + Add Player</strong>   </button>
 </div>
