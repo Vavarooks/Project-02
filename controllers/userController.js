@@ -1,115 +1,74 @@
-const connection = require('../config/connection');
-const userQueries = require('../models/User/userQueries');
-
+const connection = require('./../config/connection');
+const userQuaries = require('./../models/User/userQueries')
+ 
+// connection.connect((err)=>{
+//     if(err){
+//         return err
+//     }
+// })
 
 module.exports = {
-    getJedi: (req, res) => {
-        connection.query(userQueries.getJedi, (err, user) => {
-            if (err) {
-                throw err;
+
+
+    SELECT_ALL_USERS: (req, res) => {
+
+        connection.query(userQuaries.SELECT_ALL_USERS, (err,users)=>{
+            if(err){
+                console.log(err)
             }
-            return res.json(user);
-        });
+            return res.json(users)
+        })
+ 
     },
-    getSith: (req, res) => {
-        connection.query(userQueries.getSith, (err, user) => {
-            if (err) {
-                throw err;
-            }
-            return res.json(user);
-        });
-    },
-    getuser: (req, res) => {
-        connection.query(userQueries.getuser, (err, user) => {
-            if (err) {
-                throw err;
-            }
-            return res.json(user);
-        });
-    },
-    insertSith: (req, res) => {
-        const { sith } = req.body;
-        connection.query(userQueries.insertSith, sith, (err, dbRes) => {
+    INSERT_JEDI: (req, res) => {
+        const { name } = req.body;
+        
+        connection.query(userQuaries.INSERT_JEDI, name, (err, dbRes) => {
             if (err) {
                 throw err;
             }
             console.log(dbRes)
+            res.json({success:true})
         });
     },
-    insertJedi: (req, res) => {
-        const { jedi} = req.body;
-        console.log(jedi);
-        connection.query(userQueries.insertJedi, jedi, (err, dbRes) => {
+    INSERT_SITH: (req, res) => {
+        const { name } = req.body;
+        
+        connection.query(userQuaries.INSERT_SITH, name, (err, dbRes) => {
             if (err) {
                 throw err;
             }
-            console.log(dbRes);
+            console.log(dbRes)
+            res.json({success:true})
         });
     },
-    deleteUserById: (req, res) => {
-        const { userId } = req.params;
-        connection.query(userQueries.deleteUserById, parseInt(userId), (err, dbRes) => {
-            if (err) {
-                throw err;
+    DELETE_BY_ID: (req,res) => {
+
+        const {userId} = req.params;
+        connection.query(userQuaries.DELETE_BY_ID, parseInt(userId), (err,dbres)=>{
+            if(err){
+                throw err
             }
-            return res.json({ success: true });
-        });
+            res.json({success:true})
+        })
     },
-    getUsersById: (req, res) => {
-        const { userId } = req.params;
-        connection.query(userQueries.getUsersById, parseInt(userId), (err, user) => {
-            if (err) {
-                return res.json(err);
+    SELECT_USER_BY_ID: (req,res)=> {
+        const {userId} = req.params
+        connection.query(userQuaries.SELECT_USER_BY_ID, parseInt(userId), (err,users)=>{
+            if(err){
+                throw err
             }
-            return res.json(user[0]);
-        });
+            res.json(users[0])
+        })
     },
-
-    getjediById: (req, res) => {
-        const { userId } = req.params;
-        connection.query(userQueries.getjediById, parseInt(userId), (err, user) => {
-            if (err) {
-                return res.json(err);
-            }
-            return res.json(user[0]);
-        });
-    },
-    getsithById: (req, res) => {
-        const { userId } = req.params;
-        connection.query(userQueries.getsithById, parseInt(userId), (err, user) => {
-            if (err) {
-                return res.json(err);
-            }
-            return res.json(user[0]);
-        });
-    },
+    UPDATE_BY_NAME: (req,res)=>{
+        const {userId} = req.params
+        const {name} = req.body 
+        connection.query(userQuaries.UPDATE_BY_NAME,[name,userId],(err,dbjson)=>{
+        res.json({success:true})
+        })
+    }
 
 
 
-
-    updateJediById: (req, res) => {
-        const { userId } = req.params;
-
-
-        connection.query(userQueries.updateJediById, [true, userId], (err, dbJson) => {
-            ``
-            if (err) {
-                throw new Error(err);
-            }
-            res.json({ success: true });
-        });
-    },
-    updateSithById: (req, res) => {
-        const { userId } = req.params;
-
-
-        connection.query(userQueries.updateSithById, [true, userId], (err, dbJson) => {
-            ``
-            if (err) {
-                throw new Error(err);
-            }
-            res.json({ success: true });
-        });
-    },
-
-}
+   }
