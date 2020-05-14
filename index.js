@@ -4,7 +4,7 @@ const mysql = require('mysql')
 const cors = require('cors')
 // const sithRoutes = require('./routes/sithRoutes/sithRoutes')
   
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;;
 
 const app = express();
 
