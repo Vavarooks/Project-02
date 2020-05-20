@@ -178,6 +178,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ListItems from './ListItems'
+import Questions from "./questions"
 // import "./../../../App.css"
 
 class UserForm extends Component {
@@ -266,12 +267,18 @@ deleteUserById = (id) => {
 
     render() {
         return (
+            <div>
+                <Questions 
+                
+                />
+        
             <div className="form-container">
                 <div className="row">
                     <div className="col-12"> 
                     <form> 
                     <div className="class-form"> 
                 <h1 className="form-title"> </h1>
+                 
                  <input placeholder="name" onChange={this.onChangeHandler} value={this.state.name} type="text" name="name"></input>
  
                  <button className="btn btn-primary submit"onClick={this.onSubmitHandler}>signup</button>
@@ -283,7 +290,7 @@ deleteUserById = (id) => {
                     </div>
                 </div>
 
-               
+             </div>  
 
          );
     }
