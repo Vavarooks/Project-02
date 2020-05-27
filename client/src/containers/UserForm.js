@@ -218,7 +218,7 @@ else{
 
 
 getUsers = () => {
-     axios.get('http://localhost:8000/users')
+     axios.get('/users')
     .then((response)=>{
         this.setState({
             users: response.data
@@ -232,7 +232,7 @@ getUsers = () => {
 }
 
 postSith = () => {
-    axios.post("http://localhost:8000/sith", {name:this.state.name})
+    axios.post("/sith", {name:this.state.name})
     .then((response)=>{
         this.getUsers()
         this.setState({name:""})
@@ -244,7 +244,7 @@ postSith = () => {
 }
 
 postJedi = () => {
-    axios.post("http://localhost:8000/jedi", {name:this.state.name})
+    axios.post("/jedi", {name:this.state.name})
     .then((response)=>{
         this.getUsers()
         this.setState({name:""})
@@ -256,7 +256,7 @@ postJedi = () => {
 }
 
 deleteUserById = (id) => {
-    axios.delete(`http://localhost:8000/users/${id}`)
+    axios.delete(`/users/${id}`)
     .then((response)=>{
         this.getUsers();
     })
