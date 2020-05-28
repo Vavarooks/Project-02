@@ -4,7 +4,9 @@ import "./../components/react-sound/index.css"
  
 
 const ListItems = props => (
+
    <ul className="list-group"> 
+
  {props.items.map((item)=>(
 <li className="list-group-item"key={item.id}>
 <Link className="go-to-user"to={`/users/${item.id}`}>
